@@ -42,11 +42,11 @@ private:
 	Node *current;
 
 public:
-        Circular_linked_list()
-        {
-            this->size =0;
-            current = nullptr;
-        }
+	Circular_linked_list()
+	{
+		this->size = 0;
+		current = nullptr;
+	}
 	~Circular_linked_list();
 	//add getter and setter functions here
 	/*
@@ -92,25 +92,36 @@ public:
 		}
 		size--;
 	}
-	void pop(int data);
+	Node *search(int data)
+	{
+		Node *new_node = current;
+		while (new_node->getNextNode() != current)
+		{
+			if (new_node->getData() == data)
+				return new_node;
+			new_node = new_node->getNextNode();
+		}
+		cout << "Hey you! There is no such element. Koshti mno!!" << endl;
+		return nullptr;
+	}
+	void pop(int data)
+	{
+		Node *data_node = search(data);
+
+		if (!data_node)
+			return;
+
+		data_node->getNextNode()->setPrevNode(data_node->getPrevNode());
+		data_node->getPrevNode()->setNextNode(data_node->getNextNode());
+		delete data_node;
+		size--;
+	}
 	void push_after(int data);
 	void push_befor(int data);
-        Node * search(int data)
-        {
-            Node * new_node = current;
-            while(new_node->getNextNode() != current)
-            {
-                if(new_node->getData() == data)
-                    return new_node;
-                new_node = new_node->getNextNode();
-            }
-            cout << "Hey you! There is no such element. Koshti mno!!" << endl;
-            return nullptr;
-        }
-        void print()
-        {
-            cout << "what the hell it is? chikarsh bknim?" << endl;
-        }
+	void print()
+	{
+		cout << "what the hell it is? chikarsh bknim?" << endl;
+	}
 };
 
 int main()
