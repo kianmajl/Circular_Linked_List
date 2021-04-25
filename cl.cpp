@@ -55,7 +55,27 @@ public:
 
 		*/
 	void push();
-	void pop();
+	void pop()
+	{
+		if (!size)
+		{
+			cout << "The Linked-List is Empty!!!!" << endl;
+			return;
+		}
+		if (size == 1)
+		{
+			delete current;
+			current = nullptr;
+		}
+		else
+		{
+			Node *temp = current;
+			current->getPrevNode()->setNextNode(current->getNextNode());
+			current = current->getNextNode();
+			delete temp;
+		}
+		size--;
+	}
 	void pop(int data);
 	void push_after(int data);
 	void push_befor(int data);
@@ -79,4 +99,5 @@ public:
 
 int main()
 {
+	Circular_linked_list aka;
 }
