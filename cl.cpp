@@ -45,8 +45,7 @@ public:
         Circular_linked_list()
         {
             this->size =0;
-            current->setNextNode(nullptr);
-            current->setPrevNode(nullptr);
+            current = nullptr;
         }
 	~Circular_linked_list();
 	//add getter and setter functions here
@@ -65,8 +64,12 @@ public:
             Node * new_node = current;
             while(new_node->getNextNode() != current)
             {
-
+                if(new_node->getData() == data)
+                    return new_node;
+                new_node = new_node->getNextNode();
             }
+            cout << "Hey you! There is no such element." << endl;
+            return nullptr;
         }
         void print()
         {
