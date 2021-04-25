@@ -42,7 +42,11 @@ private:
 	Node *current;
 
 public:
-	Circular_linked_list();
+	Circular_linked_list()
+	{
+		this->size = 0;
+		current = nullptr;
+	}
 	~Circular_linked_list();
 	//add getter and setter functions here
 	/*
@@ -50,17 +54,82 @@ public:
 			here
 
 		*/
-	void push();
-	void pop();
-	void pop(int data);
+        void push(int data)
+        {
+            Node * node = new Node;
+            node->setData(data);
+            if(this->size == 0)
+            {
+                node->setNextNode(node);
+                node->setPrevNode(node);
+            }
+            else
+            {
+                node->setNextNode(this->current);
+                node->setPrevNode(this->current->getPrevNode());
+            }
+            this->current = node;
+            this->size++;
+        }
+	void pop()
+	{
+		if (!size)
+		{
+			cout << "The Linked-List is Empty!!!!" << endl;
+			return;
+		}
+		if (size == 1)
+		{
+			delete current;
+			current = nullptr;
+		}
+		else
+		{
+			Node *temp = current;
+			current->getPrevNode()->setNextNode(current->getNextNode());
+			current = current->getNextNode();
+			delete temp;
+		}
+		size--;
+	}
+	Node *search(int data)
+	{
+		Node *new_node = current;
+		while (new_node->getNextNode() != current)
+		{
+			if (new_node->getData() == data)
+				return new_node;
+			new_node = new_node->getNextNode();
+		}
+		cout << "Hey you! There is no such element. Koshti mno!!" << endl;
+		return nullptr;
+	}
+	void pop(int data)
+	{
+		Node *data_node = search(data);
+
+		if (!data_node)
+			return;
+
+		data_node->getNextNode()->setPrevNode(data_node->getPrevNode());
+		data_node->getPrevNode()->setNextNode(data_node->getNextNode());
+		delete data_node;
+		size--;
+	}
 	void push_after(int data);
 	void push_befor(int data);
-        void print()
-        {
-            cout << "what the hell it is? chikarsh bknim?" << endl;
-        }
+	void print()
+	{
+            Node *node = this->current;
+            while( node != this->current )
+            {
+                cout << node->getData() << endl;
+                node = node->getNextNode();
+            }
+	}
 };
 
 int main()
 {
+	Circular_linked_list aka;
 }
