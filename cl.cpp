@@ -60,6 +60,14 @@ public:
 	void pop(int data);
 	void push_after(int data);
 	void push_befor(int data);
+        Node * search(int data)
+        {
+            Node * new_node = current;
+            while(new_node->getNextNode() != current)
+            {
+
+            }
+        }
         void print()
         {
             cout << "what the hell it is? chikarsh bknim?" << endl;
