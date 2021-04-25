@@ -120,7 +120,14 @@ public:
 	void push_befor(int data);
 	void print()
 	{
-		cout << "what the hell it is? chikarsh bknim?" << endl;
+Print
+            Node *node = this->current;
+            while( node != this->current )
+            {
+                cout << node->getData() << endl;
+                node = node->getNextNode();
+            }
+main
 	}
 };
 
