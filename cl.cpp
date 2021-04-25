@@ -59,6 +59,18 @@ public:
 	void pop(int data);
 	void push_after(int data);
 	void push_befor(int data);
+        Node * search(int data)
+        {
+            Node * new_node = current;
+            while(new_node->getNextNode() != current)
+            {
+                if(new_node->getData() == data)
+                    return new_node;
+                new_node = new_node->getNextNode();
+            }
+            cout << "Hey you! There is no such element. Koshti mno!!" << endl;
+            return nullptr;
+        }
         void print()
         {
             cout << "what the hell it is? chikarsh bknim?" << endl;
