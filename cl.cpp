@@ -68,7 +68,7 @@ public:
                     return new_node;
                 new_node = new_node->getNextNode();
             }
-            cout << "Hey you! There is no such element." << endl;
+            cout << "Hey you! There is no such element. Koshti mno!!" << endl;
             return nullptr;
         }
         void print()
