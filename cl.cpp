@@ -42,7 +42,11 @@ private:
 	Node *current;
 
 public:
-	Circular_linked_list();
+        Circular_linked_list()
+        {
+            this->size =0;
+            current = nullptr;
+        }
 	~Circular_linked_list();
 	//add getter and setter functions here
 	/*
@@ -55,7 +59,10 @@ public:
 	void pop(int data);
 	void push_after(int data);
 	void push_befor(int data);
-	void print();
+        void print()
+        {
+            cout << "what the hell it is? chikarsh bknim?" << endl;
+        }
 };
 
 int main()
