@@ -54,7 +54,23 @@ public:
 			here
 
 		*/
-	void push();
+        void push(int data)
+        {
+            Node * node = new Node;
+            node->setData(data);
+            if(this->size == 0)
+            {
+                node->setNextNode(node);
+                node->setPrevNode(node);
+            }
+            else
+            {
+                node->setNextNode(this->current);
+                node->setPrevNode(this->current->getPrevNode());
+            }
+            this->current = node;
+            this->size++;
+        }
 	void pop()
 	{
 		if (!size)
