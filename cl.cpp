@@ -45,8 +45,7 @@ public:
         Circular_linked_list()
         {
             this->size =0;
-            current->setNextNode(nullptr);
-            current->setPrevNode(nullptr);
+            current = nullptr;
         }
 	~Circular_linked_list();
 	//add getter and setter functions here
