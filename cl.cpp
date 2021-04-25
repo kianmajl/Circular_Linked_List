@@ -93,10 +93,8 @@ public:
 		Node *data_node = search(data);
 
 		if (!data_node)
-		{
-			cout << "Hey you! There is no such element." << endl;
 			return;
-		}
+
 		data_node->getNextNode()->setPrevNode(data_node->getPrevNode());
 		data_node->getPrevNode()->setNextNode(data_node->getNextNode());
 		delete data_node;
