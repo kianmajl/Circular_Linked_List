@@ -1,46 +1,63 @@
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 
-class node{
-	private:
-		int data;
-		node* next;
-		node* prev;
-	public:
-		//add getter and setter functions here
-		/*
+class Node
+{
+private:
+	int data;
+	Node *next;
+	Node *prev;
 
-			here
-
-		*/
+public:
+	void setData(int data)
+	{
+		this->data = data;
+	}
+	void setNextNode(Node *next)
+	{
+		this->next = next;
+	}
+	void setPrevNode(Node *prev)
+	{
+		this->prev = prev;
+	}
+	int getData()
+	{
+		return this->data;
+	}
+	Node *getNextNode()
+	{
+		return this->next;
+	}
+	Node *getPrevNode()
+	{
+		return this->prev;
+	}
 };
-class Circular_linked_list{
-	private:
-		int size;
-		node* current;
-	public:
-		Circular_linked_list();
-		~Circular_linked_list();
-		//add getter and setter functions here
-		/*
+
+class Circular_linked_list
+{
+private:
+	int size;
+	Node *current;
+
+public:
+	Circular_linked_list();
+	~Circular_linked_list();
+	//add getter and setter functions here
+	/*
 		
 			here
 
 		*/
-		void push();
-		void pop();
-		void pop(int data);
-		void push_after(int data);
-		void push_befor(int data);
-		void print();
+	void push();
+	void pop();
+	void pop(int data);
+	void push_after(int data);
+	void push_befor(int data);
+	void print();
+};
 
-
-}
-
-
-
-int main(){
-
-
-
+int main()
+{
 }
