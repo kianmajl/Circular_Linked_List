@@ -55,7 +55,10 @@ public:
 	void pop(int data);
 	void push_after(int data);
 	void push_befor(int data);
-	void print();
+        void print()
+        {
+            print << "what the hell it is?" << endl;
+        }
 };
 
 int main()
