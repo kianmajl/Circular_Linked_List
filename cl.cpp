@@ -48,12 +48,15 @@ public:
 		current = nullptr;
 	}
 	~Circular_linked_list();
-	//add getter and setter functions here
-	/*
-		
-			here
 
-		*/
+        int getSize()
+        {
+            return this->size;
+        }
+        Node * getCurrentNode()
+        {
+            return this->current;
+        }
         void push(int data)
         {
             Node * node = new Node;
