@@ -57,7 +57,7 @@ public:
 	void push_befor(int data);
         void print()
         {
-            print << "what the hell it is? chikarsh bknim?" << endl;
+            cout << "what the hell it is? chikarsh bknim?" << endl;
         }
 };
 
