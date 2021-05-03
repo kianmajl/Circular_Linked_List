@@ -49,12 +49,9 @@ public:
     }
     ~Circular_linked_list()
     {
-        Node * tmp = this->current->getNextNode();
         while(this->size>0)
         {
-            delete tmp->getPrevNode();
-            tmp = tmp->getNextNode();
-            this->size--;
+            pop();
         }
     }
 
