@@ -47,7 +47,10 @@ public:
         this->size = 0;
         current = nullptr;
     }
-    ~Circular_linked_list();
+    ~Circular_linked_list()
+    {
+        //hhhhh
+    }
 
     int getSize()
     {
