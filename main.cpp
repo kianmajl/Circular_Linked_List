@@ -143,7 +143,7 @@ public:
 
             tmp->setData(data);
             tmp->setNextNode(this->current);
-            tmp->setPrevNode(this->current->getNextNode());
+            tmp->setPrevNode(this->current->getPrevNode());
             this->current->setPrevNode(tmp);
         }
     }
