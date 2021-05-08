@@ -49,25 +49,24 @@ public:
     }
     ~Circular_linked_list()
     {
-        while(this->size>0)
+        while (this->size > 0)
         {
             pop();
         }
     }
-
     int getSize()
     {
         return this->size;
     }
-    Node * getCurrentNode()
+    Node *getCurrentNode()
     {
         return this->current;
     }
     void push(int data)
     {
-        Node * node = new Node;
+        Node *node = new Node;
         node->setData(data);
-        if(this->size == 0)
+        if (this->size == 0)
         {
             node->setNextNode(node);
             node->setPrevNode(node);
@@ -76,6 +75,10 @@ public:
         {
             node->setNextNode(this->current);
             node->setPrevNode(this->current->getPrevNode());
+            Node *tmp = this->current;
+            while (tmp->getNextNode() != this->current)
+                tmp = tmp->getNextNode();
+            tmp->setNextNode(node);
         }
         this->current = node;
         this->size++;
@@ -127,7 +130,7 @@ public:
     }
     void push_after(int data)
     {
-        if(this->size == 0)
+        if (this->size == 0)
             push(data);
         else
         {
@@ -141,7 +144,7 @@ public:
     }
     void push_before(int data)
     {
-        if(this->size == 0)
+        if (this->size == 0)
             push(data);
         else
         {
