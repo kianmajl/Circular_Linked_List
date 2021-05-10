@@ -204,7 +204,7 @@ int main()
         cout << "Your link list is ready dude!" << endl << endl;
         cout << "Press Enter to go back to main menu.";
         cin.ignore();
-        system("cls")
+        system("cls");
         main();
     }
     else if(action == "2")
@@ -212,7 +212,7 @@ int main()
         cout << aka.getSize() << endl << endl;
         cout << "Press Enter to go back to main menu.";
         cin.ignore();
-        system("cls")
+        system("cls");
         main();
     }
     else if(action == "3")
@@ -225,7 +225,7 @@ int main()
         cout << endl << "Your data successfullu pushed :)" << endl << endl;
         cout << "Press Enter to go back to main menu.";
         cin.ignore();
-        system("cls")
+        system("cls");
         main();
     }
     else if(action == "4")
@@ -237,7 +237,7 @@ int main()
             cout << "Unreachable request! Ye chi bkha ke beshe :/" << endl << endl;
         cout << "Press Enter to go back to main menu.";
         cin.ignore();
-        system("cls")
+        system("cls");
         main();
     }
     else if(action == "5")
@@ -252,7 +252,7 @@ int main()
             cout << "Unreachable request! Bebin karato :/" << endl << endl;
         cout << "Press Enter to go back to main menu.";
         cin.ignore();
-        system("cls")
+        system("cls");
         main();
     }
     else if(action == "6")
@@ -267,7 +267,7 @@ int main()
             cout << "Unreachable request! Ish Ish :/" << endl << endl;
         cout << "Press Enter to go back to main menu.";
         cin.ignore();
-        system("cls")
+        system("cls");
         main();
     }
     else if(action == "7")
@@ -280,7 +280,7 @@ int main()
         cout << endl << "Your data successfullu pushed :)" << endl << endl;
         cout << "Press Enter to go back to main menu.";
         cin.ignore();
-        system("cls")
+        system("cls");
         main();
     }
     else if(action == "8")
@@ -293,7 +293,7 @@ int main()
         cout << endl << "Your data successfullu pushed :)" << endl << endl;
         cout << "Press Enter to go back to main menu.";
         cin.ignore();
-        system("cls")
+        system("cls");
         main();
     }
     else if(action == "9")
@@ -312,7 +312,7 @@ int main()
         cout << endl;
         cout << "Press Enter to go back to main menu.";
         cin.ignore();
-        system("cls")
+        system("cls");
         main();
     }
     else if(action == "Let me out of this shit")
