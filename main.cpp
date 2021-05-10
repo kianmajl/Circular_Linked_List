@@ -153,14 +153,21 @@ public:
             this->current->setPrevNode(tmp);
         }
     }
+
     void print()
     {
         Node *node = this->current;
-        while( node != this->current )
+        if(this->current == nullptr)
+        {
+            cout << "This linklist is empy! For God's sake leave me alone user!" << endl;
+            return;
+        }
+
+        do
         {
             cout << node->getData() << endl;
             node = node->getNextNode();
-        }
+        }while( node != this->current );
     }
 };
 
