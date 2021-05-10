@@ -83,12 +83,12 @@ public:
         this->current = node;
         this->size++;
     }
-    void pop()
+    bool pop()
     {
         if (!size)
         {
             cout << "The Linked-List is Empty!!!!" << endl;
-            return;
+            return false;
         }
         if (size == 1)
         {
@@ -103,6 +103,7 @@ public:
             delete temp;
         }
         size--;
+        return true;
     }
     Node *search(int data)
     {
@@ -116,17 +117,18 @@ public:
         cout << "Hey you! There is no such element. Koshti mno!!" << endl;
         return nullptr;
     }
-    void pop(int data)
+    bool pop(int data)
     {
         Node *data_node = search(data);
 
         if (!data_node)
-            return;
+            return false;
 
         data_node->getNextNode()->setPrevNode(data_node->getPrevNode());
         data_node->getPrevNode()->setNextNode(data_node->getNextNode());
         delete data_node;
         size--;
+        return true;
     }
     void push_after(int data)
     {
@@ -160,7 +162,7 @@ public:
     void print()
     {
         Node *node = this->current;
-        if(this->current == nullptr)
+        if (this->current == nullptr)
         {
             cout << "This linklist is empy! For God's sake leave me alone user!" << endl;
             return;
@@ -170,7 +172,7 @@ public:
         {
             cout << node->getData() << endl;
             node = node->getNextNode();
-        }while( node != this->current );
+        } while (node != this->current);
     }
 };
 
@@ -190,113 +192,127 @@ string action_menu()
          << "To exit the program enter \"Let me out of this shit\"" << endl;
 
     string action;
-    getline(cin,action);
+    getline(cin, action);
     return action;
 }
 
 Circular_linked_list aka;
 
 int main()
-{  
+{
     string action = action_menu();
-    if(action == "1")
+    if (action == "1")
     {
-        cout << "Your link list is ready dude!" << endl << endl;
+        cout << "Your link list is ready dude!" << endl
+             << endl;
         cout << "Press Enter to go back to main menu.";
         cin.ignore();
         system("cls");
         main();
     }
-    else if(action == "2")
+    else if (action == "2")
     {
-        cout << aka.getSize() << endl << endl;
+        cout << aka.getSize() << endl
+             << endl;
         cout << "Press Enter to go back to main menu.";
         cin.ignore();
         system("cls");
         main();
     }
-    else if(action == "3")
+    else if (action == "3")
     {
         cout << "\n               --------------------------------------\n"
-             << "Enter the data you wanna push: " ;
+             << "Enter the data you wanna push: ";
         int d;
         cin >> d;
         aka.push(d);
-        cout << endl << "Your data successfullu pushed :)" << endl << endl;
+        cout << endl
+             << "Your data successfullu pushed :)" << endl
+             << endl;
         cout << "Press Enter to go back to main menu.";
         cin.ignore();
         system("cls");
         main();
     }
-    else if(action == "4")
+    else if (action == "4")
     {
         cout << "\n               --------------------------------------\n";
-        if(aka.pop() == true)
-            cout << endl << "Your current data successfully poped :)" << endl;
+        if (aka.pop() == true)
+            cout << endl
+                 << "Your current data successfully poped :)" << endl;
         else
-            cout << "Unreachable request! Ye chi bkha ke beshe :/" << endl << endl;
+            cout << "Unreachable request! Ye chi bkha ke beshe :/" << endl
+                 << endl;
         cout << "Press Enter to go back to main menu.";
         cin.ignore();
         system("cls");
         main();
     }
-    else if(action == "5")
+    else if (action == "5")
     {
         cout << "\n               --------------------------------------\n"
-             << "Enter the data you wanna seek for: " ;
+             << "Enter the data you wanna seek for: ";
         int d;
         cin >> d;
-        if(aka.search() != nullptr)
-            cout << endl << "Your current data successfully found :)" << endl;
+        if (aka.search(d) != nullptr)
+            cout << endl
+                 << "Your current data successfully found :)" << endl;
         else
-            cout << "Unreachable request! Bebin karato :/" << endl << endl;
+            cout << "Unreachable request! Bebin karato :/" << endl
+                 << endl;
         cout << "Press Enter to go back to main menu.";
         cin.ignore();
         system("cls");
         main();
     }
-    else if(action == "6")
+    else if (action == "6")
     {
         cout << "\n               --------------------------------------\n"
-             << "Enter the data you wanna pop: " ;
+             << "Enter the data you wanna pop: ";
         int d;
         cin >> d;
-        if(aka.pop == true)
-            cout << endl << "Your data successfully poped :)" << endl;
+        if (aka.pop() == true)
+            cout << endl
+                 << "Your data successfully poped :)" << endl;
         else
-            cout << "Unreachable request! Ish Ish :/" << endl << endl;
+            cout << "Unreachable request! Ish Ish :/" << endl
+                 << endl;
         cout << "Press Enter to go back to main menu.";
         cin.ignore();
         system("cls");
         main();
     }
-    else if(action == "7")
+    else if (action == "7")
     {
         cout << "\n               --------------------------------------\n"
-             << "Enter the data you wanna push after current data: " ;
+             << "Enter the data you wanna push after current data: ";
         int d;
         cin >> d;
         aka.push_after(d);
-        cout << endl << "Your data successfullu pushed :)" << endl << endl;
+        cout << endl
+             << "Your data successfullu pushed :)" << endl
+             << endl;
         cout << "Press Enter to go back to main menu.";
         cin.ignore();
         system("cls");
         main();
     }
-    else if(action == "8")
+    else if (action == "8")
     {
         cout << "\n               --------------------------------------\n"
-             << "Enter the data you wanna push before current data: " ;
+             << "Enter the data you wanna push before current data: ";
         int d;
         cin >> d;
         aka.push_before(d);
-        cout << endl << "Your data successfullu pushed :)" << endl << endl;
+        cout << endl
+             << "Your data successfullu pushed :)" << endl
+             << endl;
         cout << "Press Enter to go back to main menu.";
         cin.ignore();
         system("cls");
         main();
     }
-    else if(action == "9")
+    else if (action == "9")
     {
         cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << endl;
         cout << "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" << endl;
@@ -315,10 +331,9 @@ int main()
         system("cls");
         main();
     }
-    else if(action == "Let me out of this shit")
+    else if (action == "Let me out of this shit")
     {
         cout << "Goodbye! Beri ke barnagardi :)" << endl;
         return 0;
     }
-
 }
