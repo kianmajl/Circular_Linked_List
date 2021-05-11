@@ -154,18 +154,23 @@ public:
             return true;
         }
     }
-    void push_before(int data)
+    bool push_before(int new_data,int pb_data)
     {
-        if (this->size == 0)
-            push(data);
+        Node *pad = search(pb_data);
+
+        if (!pad)
+            return false;
         else
         {
             Node *tmp = new Node;
 
-            tmp->setData(data);
-            tmp->setNextNode(this->current);
-            tmp->setPrevNode(this->current->getPrevNode());
-            this->current->setPrevNode(tmp);
+            tmp->setData(new_data);
+            tmp->setNextNode(pad);
+            tmp->setPrevNode(pad->getPrevNode());
+            pad->getPrevNode()->setNextNode(tmp);
+            pad->setPrevNode(tmp);
+            this->size++;
+            return true;
         }
     }
 
@@ -325,7 +330,7 @@ int main()
         cin >> d;
         cout << "\nEnter the specific data please dear user :)  :";
         cin >> place;
-        if(aka.push_before(d,place)
+        if(aka.push_before(d,place))
         {
                 cout << endl
                 << "Your data successfullu pushed :)" << endl
