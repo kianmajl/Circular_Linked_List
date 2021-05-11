@@ -135,18 +135,22 @@ public:
         size--;
         return true;
     }
-    void push_after(int data)
+    bool push_after(int new_data, int pa_data)
     {
-        if (this->size == 0)
-            push(data);
+        Node *pad = search(pa_data);
+
+        if (!pad)
+            return false;
         else
         {
             Node *tmp = new Node;
 
-            tmp->setData(data);
-            tmp->setNextNode(this->current->getNextNode());
-            tmp->setPrevNode(this->current);
-            this->current->setNextNode(tmp);
+            tmp->setData(new_data);
+            tmp->setNextNode(pad->getNextNode());
+            tmp->setPrevNode(pad);
+            pad->getNextNode()->setPrevNode(tmp);
+            pad->setNextNode(tmp);
+            return true;
         }
     }
     void push_before(int data)
