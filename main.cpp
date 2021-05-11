@@ -154,7 +154,7 @@ public:
             return true;
         }
     }
-    bool push_before(int new_data,int pb_data)
+    bool push_before(int new_data, int pb_data)
     {
         Node *pad = search(pb_data);
 
@@ -302,19 +302,19 @@ int main()
         cout << "\n               --------------------------------------\n"
              << "Enter the data you wanna push after a specific data: ";
 
-        int d , place;
+        int d, place;
         cin >> d;
         cout << "\nEnter the specific data please dear user :)  :";
         cin >> place;
-        if(aka.push_after(d,place))
+        if (aka.push_after(d, place))
         {
-                cout << endl
-                << "Your data successfullu pushed :)" << endl
-                << endl;
+            cout << endl
+                 << "Your data successfullu pushed :)" << endl
+                 << endl;
         }
         else
         {
-                cout << "Unreachable request! Vaqean ke!" << endl;
+            cout << "Unreachable request! Vaqean ke!" << endl;
         }
 
         cout << "Press Enter to go back to main menu.";
@@ -326,19 +326,19 @@ int main()
     {
         cout << "\n               --------------------------------------\n"
              << "Enter the data you wanna push before a specific data: ";
-        int d , place;
+        int d, place;
         cin >> d;
         cout << "\nEnter the specific data please dear user :)  :";
         cin >> place;
-        if(aka.push_before(d,place))
+        if (aka.push_before(d, place))
         {
-                cout << endl
-                << "Your data successfullu pushed :)" << endl
-                << endl;
+            cout << endl
+                 << "Your data successfullu pushed :)" << endl
+                 << endl;
         }
         else
         {
-                cout << "Unreachable request! Shame on you!" << endl;
+            cout << "Unreachable request! Shame on you!" << endl;
         }
         cout << "Press Enter to go back to main menu.";
         cin.ignore();
