@@ -150,6 +150,7 @@ public:
             tmp->setPrevNode(pad);
             pad->getNextNode()->setPrevNode(tmp);
             pad->setNextNode(tmp);
+            this->size++;
             return true;
         }
     }
