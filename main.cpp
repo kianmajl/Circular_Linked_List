@@ -295,13 +295,23 @@ int main()
     else if (action == "7")
     {
         cout << "\n               --------------------------------------\n"
-             << "Enter the data you wanna push after current data: ";
-        int d;
+             << "Enter the data you wanna push after a specific data: ";
+
+        int d , place;
         cin >> d;
-        aka.push_after(d);
-        cout << endl
-             << "Your data successfullu pushed :)" << endl
-             << endl;
+        cout << "\nEnter the specific data please dear user :)  :";
+        cin >> place;
+        if(aka.push_after(d,place))
+        {
+                cout << endl
+                << "Your data successfullu pushed :)" << endl
+                << endl;
+        }
+        else
+        {
+                cout << "Unreachable request! Vaqean ke!" << endl;
+        }
+
         cout << "Press Enter to go back to main menu.";
         cin.ignore();
         system("cls");
@@ -310,13 +320,21 @@ int main()
     else if (action == "8")
     {
         cout << "\n               --------------------------------------\n"
-             << "Enter the data you wanna push before current data: ";
-        int d;
+             << "Enter the data you wanna push before a specific data: ";
+        int d , place;
         cin >> d;
-        aka.push_before(d);
-        cout << endl
-             << "Your data successfullu pushed :)" << endl
-             << endl;
+        cout << "\nEnter the specific data please dear user :)  :";
+        cin >> place;
+        if(aka.push_before(d,place)
+        {
+                cout << endl
+                << "Your data successfullu pushed :)" << endl
+                << endl;
+        }
+        else
+        {
+                cout << "Unreachable request! Shame on you!" << endl;
+        }
         cout << "Press Enter to go back to main menu.";
         cin.ignore();
         system("cls");
