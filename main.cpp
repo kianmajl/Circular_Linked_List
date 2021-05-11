@@ -113,16 +113,16 @@ public:
     Node *search(int data)
     {
         Node *new_node = current;
-        
+
         if (!new_node)
             return nullptr;
-
-        while (new_node->getNextNode() != current)
+        do
         {
             if (new_node->getData() == data)
                 return new_node;
             new_node = new_node->getNextNode();
-        }
+        } while (new_node != this->current);
+
         cout << "Hey you! There is no such element. Koshti mno!!" << endl;
         return nullptr;
     }
@@ -250,6 +250,7 @@ int main()
              << endl;
         cout << "Press Enter to go back to main menu.";
         cin.ignore();
+        cin.ignore();
         system("cls");
         main();
     }
@@ -281,6 +282,7 @@ int main()
                  << endl;
         cout << "Press Enter to go back to main menu.";
         cin.ignore();
+        cin.ignore();
         system("cls");
         main();
     }
@@ -290,13 +292,14 @@ int main()
              << "Enter the data you wanna pop: ";
         int d;
         cin >> d;
-        if (aka.pop() == true)
+        if (aka.pop(d) == true)
             cout << endl
                  << "Your data successfully poped :)" << endl;
         else
             cout << "Unreachable request! Ish Ish :/" << endl
                  << endl;
         cout << "Press Enter to go back to main menu.";
+        cin.ignore();
         cin.ignore();
         system("cls");
         main();
@@ -323,6 +326,7 @@ int main()
 
         cout << "Press Enter to go back to main menu.";
         cin.ignore();
+        cin.ignore();
         system("cls");
         main();
     }
@@ -345,6 +349,7 @@ int main()
             cout << "Unreachable request! Shame on you!" << endl;
         }
         cout << "Press Enter to go back to main menu.";
+        cin.ignore();
         cin.ignore();
         system("cls");
         main();
