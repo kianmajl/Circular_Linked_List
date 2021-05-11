@@ -113,6 +113,10 @@ public:
     Node *search(int data)
     {
         Node *new_node = current;
+        
+        if (!new_node)
+            return nullptr;
+
         while (new_node->getNextNode() != current)
         {
             if (new_node->getData() == data)
