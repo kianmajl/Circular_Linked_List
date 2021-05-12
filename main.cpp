@@ -104,6 +104,7 @@ public:
         {
             Node *temp = current;
             current->getPrevNode()->setNextNode(current->getNextNode());
+            current->getNextNode()->setPrevNode(current->getPrevNode());
             current = current->getNextNode();
             delete temp;
         }
