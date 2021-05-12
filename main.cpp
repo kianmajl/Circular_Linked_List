@@ -105,6 +105,7 @@ public:
         {
             Node *temp = current;
             current->getPrevNode()->setNextNode(current->getNextNode());
+            current->getNextNode()->setPrevNode(current->getPrevNode());
             current = current->getNextNode();
             delete temp;
         }
@@ -114,12 +115,16 @@ public:
     Node *search(int data)
     {
         Node *new_node = current;
-        while (new_node->getNextNode() != current)
+
+        if (!new_node)
+            return nullptr;
+        do
         {
             if (new_node->getData() == data)
                 return new_node;
             new_node = new_node->getNextNode();
-        }
+        } while (new_node != this->current);
+
         cout << "Hey you! There is no such element. Koshti mno!!" << endl;
         return nullptr;
     }
@@ -136,32 +141,42 @@ public:
         size--;
         return true;
     }
-    void push_after(int data)
+    bool push_after(int new_data, int pa_data)
     {
-        if (this->size == 0)
-            push(data);
+        Node *pad = search(pa_data);
+
+        if (!pad)
+            return false;
         else
         {
             Node *tmp = new Node;
 
-            tmp->setData(data);
-            tmp->setNextNode(this->current->getNextNode());
-            tmp->setPrevNode(this->current);
-            this->current->setNextNode(tmp);
+            tmp->setData(new_data);
+            tmp->setNextNode(pad->getNextNode());
+            tmp->setPrevNode(pad);
+            pad->getNextNode()->setPrevNode(tmp);
+            pad->setNextNode(tmp);
+            this->size++;
+            return true;
         }
     }
-    void push_before(int data)
+    bool push_before(int new_data, int pb_data)
     {
-        if (this->size == 0)
-            push(data);
+        Node *pad = search(pb_data);
+
+        if (!pad)
+            return false;
         else
         {
             Node *tmp = new Node;
 
-            tmp->setData(data);
-            tmp->setNextNode(this->current);
-            tmp->setPrevNode(this->current->getPrevNode());
-            this->current->setPrevNode(tmp);
+            tmp->setData(new_data);
+            tmp->setNextNode(pad);
+            tmp->setPrevNode(pad->getPrevNode());
+            pad->getPrevNode()->setNextNode(tmp);
+            pad->setPrevNode(tmp);
+            this->size++;
+            return true;
         }
     }
 
@@ -237,6 +252,7 @@ int main()
              << endl;
         cout << "Press Enter to go back to main menu.";
         cin.ignore();
+        cin.ignore();
         system("cls");
         main();
     }
@@ -268,6 +284,7 @@ int main()
                  << endl;
         cout << "Press Enter to go back to main menu.";
         cin.ignore();
+        cin.ignore();
         system("cls");
         main();
     }
@@ -277,7 +294,7 @@ int main()
              << "Enter the data you wanna pop: ";
         int d;
         cin >> d;
-        if (aka.pop() == true)
+        if (aka.pop(d) == true)
             cout << endl
                  << "Your data successfully poped :)" << endl;
         else
@@ -285,20 +302,32 @@ int main()
                  << endl;
         cout << "Press Enter to go back to main menu.";
         cin.ignore();
+        cin.ignore();
         system("cls");
         main();
     }
     else if (action == "7")
     {
         cout << "\n               --------------------------------------\n"
-             << "Enter the data you wanna push after current data: ";
-        int d;
+             << "Enter the data you wanna push after a specific data: ";
+
+        int d, place;
         cin >> d;
-        aka.push_after(d);
-        cout << endl
-             << "Your data successfullu pushed :)" << endl
-             << endl;
+        cout << "\nEnter the specific data please dear user :)  :";
+        cin >> place;
+        if (aka.push_after(d, place))
+        {
+            cout << endl
+                 << "Your data successfullu pushed :)" << endl
+                 << endl;
+        }
+        else
+        {
+            cout << "Unreachable request! Vaqean ke!" << endl;
+        }
+
         cout << "Press Enter to go back to main menu.";
+        cin.ignore();
         cin.ignore();
         system("cls");
         main();
@@ -306,14 +335,23 @@ int main()
     else if (action == "8")
     {
         cout << "\n               --------------------------------------\n"
-             << "Enter the data you wanna push before current data: ";
-        int d;
+             << "Enter the data you wanna push before a specific data: ";
+        int d, place;
         cin >> d;
-        aka.push_before(d);
-        cout << endl
-             << "Your data successfullu pushed :)" << endl
-             << endl;
+        cout << "\nEnter the specific data please dear user :)  :";
+        cin >> place;
+        if (aka.push_before(d, place))
+        {
+            cout << endl
+                 << "Your data successfullu pushed :)" << endl
+                 << endl;
+        }
+        else
+        {
+            cout << "Unreachable request! Shame on you!" << endl;
+        }
         cout << "Press Enter to go back to main menu.";
+        cin.ignore();
         cin.ignore();
         system("cls");
         main();
